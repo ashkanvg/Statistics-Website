@@ -6,10 +6,20 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HomeComponent } from './home/home.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+
+
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+import { HomeComponent } from './home/home.component';
 import { CourseSectionComponent } from './course-section/course-section.component';
 import { SectionDetailsComponent } from './section-details/section-details.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +33,8 @@ import { SectionDetailsComponent } from './section-details/section-details.compo
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatExpansionModule,
+    MatListModule,
     NgbModule
   ],
   providers: [],

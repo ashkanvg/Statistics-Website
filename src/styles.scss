@@ -8,7 +8,7 @@ $second-color : #AC3B61;
 $bg-color: #eeeeee;
 
 body { 
-  background-color: $bg-color;
+  background-color: $bg-color !important;
   padding: 0; 
   margin: 0; 
   font-family: $main-font, Roboto, sans-serif;   

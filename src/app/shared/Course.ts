@@ -17,8 +17,13 @@ export interface Section{
     description: string;
 }
 export interface Link{
-    type: string;
+    type: number;
+    // 1 --> slides/pdf
+    // 2 --> videos
+    // 3 --> others
     link: string;
+    title: string;
+    date: string;
 }
 
 
@@ -135,3 +140,40 @@ export const sections: Section[] = [
 
     }
 ];
+
+export const links: Link[] = [
+    {
+        type: 1,
+        link: 'https://www.google.com',
+        title: 'جزوه درس',
+        date: '12 شهریور 1400'
+    },
+    {
+        type: 2,
+        link: 'https://www.aut.ac.ir',
+        title: 'ویدئو درس',
+        date: '12 شهریور 1400'
+
+    },
+    {
+        type: 3,
+        link: 'https://www.google.com',
+        title: 'سایر درس',
+        date: '12 شهریور 1400'
+
+    },
+    {
+        type: 1,
+        link: 'https://www.google.com',
+        title: 'تست درس',
+        date: '12 شهریور 1400'
+
+    },
+    {
+        type: 3,
+        link: 'https://www.google.com',
+        title: 'امتحان درس',        
+        date: '12 شهریور 1400'
+
+    }
+]

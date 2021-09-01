@@ -1,1 +1,90 @@
-<p>section-details works!</p>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-12 main-font">
+            <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="main-font">
+                      اسلایدها و جزوه ها
+                    </mat-panel-title>
+                    <mat-panel-description class="main-font">
+                      تمامی فایل‌های متنی 
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  
+                  <mat-list style="text-align: right;"> 
+                    <p class="main-font">برای دانلود یا مشاهده فایل روی نام آن کلیک کنید</p>
+                    
+                    <mat-list-item *ngFor="let slide of slidesSection" style="text-align: right; direction: rtl;">
+                        <a href="{{slide.link}}" class="main-font"> 
+                            <span class="material-icons">
+                                description
+                            </span>      
+                        </a>
+                        <a href="{{slide.link}}" mat-line class="main-font"> {{slide.title}} </a>
+                        <div mat-line class="main-font">{{slide.date}}</div>
+                        
+                    </mat-list-item>
+                  </mat-list>
+
+
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="main-font">
+                      ویدئوها
+                    </mat-panel-title>
+                    <mat-panel-description class="main-font">
+                        تمامی ویدئو جلسه
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <mat-list style="text-align: right;"> 
+                    <p class="main-font">برای دانلود یا مشاهده ویدئو روی نام آن کلیک کنید</p>
+                    
+                    <mat-list-item *ngFor="let slide of videoSection" style="text-align: right; direction: rtl;">
+                        <a href="{{slide.link}}" class="main-font"> 
+                            <span class="material-icons">
+                                video_library
+                            </span>      
+                        </a>
+                        <a href="{{slide.link}}" mat-line class="main-font"> {{slide.title}} </a>
+                        <div mat-line class="main-font">{{slide.date}}</div>
+                        
+                    </mat-list-item>
+                  </mat-list>
+
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="main-font">
+                      سایر فایل ها
+                    </mat-panel-title>
+                    <mat-panel-description class="main-font">
+                        تمامی ویدئو جلسه
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <mat-list style="text-align: right;"> 
+                    <p class="main-font">برای دانلود یا مشاهده ویدئو روی نام آن کلیک کنید</p>
+                    
+                    <mat-list-item *ngFor="let slide of otherSection" style="text-align: right; direction: rtl;">
+                        <a href="{{slide.link}}" class="main-font"> 
+                            <span class="material-icons">
+                                file_download
+                            </span>      
+                        </a>
+                        <a href="{{slide.link}}" mat-line class="main-font"> {{slide.title}} </a>
+                        <div mat-line class="main-font">{{slide.date}}</div>
+                        
+                    </mat-list-item>
+                  </mat-list>
+
+
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+    </div>
+</div>
