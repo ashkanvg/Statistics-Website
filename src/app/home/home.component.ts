@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { courses, Course } from '../shared/Course';
 
 @Component({
@@ -8,11 +9,16 @@ import { courses, Course } from '../shared/Course';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit(): void {
 
   }
 
   homeCourses: Course[] = courses;
+
+
+  courseClick(id: number){
+    this.router.navigate(['/Course',id ]);
+  }
 
 }

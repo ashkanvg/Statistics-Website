@@ -8,11 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CourseSectionComponent } from './course-section/course-section.component';
+import { SectionDetailsComponent } from './section-details/section-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CourseSectionComponent,
+    SectionDetailsComponent
   ],
   imports: [
     BrowserModule,
