@@ -1,0 +1,22 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+// some basic resets 
+$main-font: IRANSans;
+$second-font: IRANSansDn;
+$second-color : #AC3B61;
+
+body { 
+  padding: 0; 
+  margin: 0; 
+  font-family: $main-font, Roboto, sans-serif;   
+}
+
+.main-font{
+    font-family: $main-font, Roboto, sans-serif;   
+}
+.second-font{
+    font-family: $second-font, $main-font, Roboto, sans-serif;   
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
