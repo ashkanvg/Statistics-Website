@@ -1,22 +1,22 @@
 /* FontAwesome for working BootSnippet :> */
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+//@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #team {
     background: #eee !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #108d6f;
-    border-color: #108d6f;
+    background-color: rgb(35,79,109);
+    border-color: rgb(35,79,109);
     box-shadow: none;
     outline: none;
 }
-
+//#007b5e
 .btn-primary {
     color: #fff;
-    background-color: #007b5e;
-    border-color: #007b5e;
+    background-color: rgb(35,79,109);
+    border-color: rgb(35,79,109);
 }
 
 section {
@@ -25,7 +25,7 @@ section {
 
 section .section-title {
     text-align: center;
-    color: #007b5e;
+    color: rgb(35,79,109);
     margin-bottom: 50px;
     text-transform: uppercase;
 }
@@ -78,6 +78,7 @@ section .section-title {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     background: white;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
@@ -115,7 +116,7 @@ section .section-title {
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #007b5e !important;
+    color: rgb(35,79,109) !important;
 }
 
 .frontside .card .card-body img {
@@ -131,7 +132,7 @@ section .section-title {
     text-overflow: ellipsis;
       
 }
-.backside .card .card-title{
+.backside .card .card-title{   
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

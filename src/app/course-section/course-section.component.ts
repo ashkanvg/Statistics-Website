@@ -15,7 +15,16 @@ export class CourseSectionComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = params['id'];
+        //console.log(params);
+        if(params){
+          this.courseId = params['id'];
+
+          // if not valid send back to /home
+
+        }else{
+          this.router.navigate(['/Home']);
+        }
+        
       }
     );
 
@@ -24,14 +33,22 @@ export class CourseSectionComponent implements OnInit {
     }
   }
 
-  id: number = -1;
-
+  courseId: number = -1;
   sectionsList: Section[] = sections;
-  
+  sectionDetail(sectionId: number){
+    let param = this.courseId + '-' + sectionId;
+    this.router.navigate(['/Section',param ]);
+
+  }
+
+
+
   trimStringLength(text: string, maxLength: number): string{
     if (text.length > maxLength) {
       text = text.substr(0,maxLength) + '...';
     }
     return text;
   }
+
+  
 }
