@@ -9,11 +9,10 @@ const routes: Routes = [
   { path: 'Home',component: HomeComponent  },
   { path: 'Course/:id',component: CourseSectionComponent  },
   { path: 'Section/:id',component: SectionDetailsComponent  } 
-  // id: 2-3 : course_id: 2 , section_id: 3
 
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
