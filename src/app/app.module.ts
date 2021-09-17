@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -19,7 +20,9 @@ import { CourseSectionComponent } from './course-section/course-section.componen
 import { SectionDetailsComponent } from './section-details/section-details.component';
 
 
-
+// api:
+import { HttpClientModule } from '@angular/common/http';
+import { MyApi } from './services/course.service'
 
 @NgModule({
   declarations: [
@@ -35,9 +38,11 @@ import { SectionDetailsComponent } from './section-details/section-details.compo
     MatToolbarModule,
     MatExpansionModule,
     MatListModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [MyApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

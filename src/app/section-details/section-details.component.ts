@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MyApi } from '../services/course.service';
 import { Link, links } from '../shared/Course';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-section-details',
@@ -10,7 +12,9 @@ import { Link, links } from '../shared/Course';
 export class SectionDetailsComponent implements OnInit {
 
   constructor(private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private _Api: MyApi,
+              private _location: Location) { }
 
   
 
@@ -36,22 +40,45 @@ export class SectionDetailsComponent implements OnInit {
       }
     ); 
 
+    this.getContent();
 
-
-    // section separator:
-    for(let item of this.sectionLinks){
-      if(item.type===1){
-        this.slidesSection.push(item);
-      }
-      else if(item.type===2){
-        this.videoSection.push(item);
-      }
-      else{
-        this.otherSection.push(item);
-      }
-    }
+   
 
   }
 
+  getContent(){
+    this._Api.getContents(this.sectionId).subscribe(
+      response=>{
+        if(response){
+          //console.log(response);
+          for(let item of response){
+            let new_item: Link ={
+              title: item.title,
+              date: item.created_at,
+              link: item.links,
+              type: item.type
+            }
+            //this.sectionId = item.session;
+            if(new_item.type===1){
+              this.slidesSection.push(item);
+            }
+            else if(new_item.type===2){
+              this.videoSection.push(item);
+            }
+            else{
+              this.otherSection.push(item);
+            }
+          
+            //console.log(item);
+          }
+        }
+    });
+  }
+
+  backClicked() {
+    this._location.back();
+  }
+
   sectionId: string = '-1';
+  titlePage: string = 'اطلاعات جلسه';
 }
