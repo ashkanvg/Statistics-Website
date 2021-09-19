@@ -13,7 +13,7 @@
                                         <!--<p><img class="img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>-->
                                         <h4 class="card-title">جلسه {{item.number}}</h4>
                                         <p class="card-text">{{item.title}}</p>
-                                        <a class="btn btn-primary btn-sm mb-3">توضیحات جلسه</a>
+                                        <a class="btn btn-primary btn-sm mb-3" (click)="sectionDetail(item.id)">توضیحات جلسه</a>
                                         <p>{{item.date | date}}</p>
                                     </div>
                                 </div>
