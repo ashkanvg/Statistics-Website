@@ -79,4 +79,5 @@ export class CourseSectionComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
+  
 }

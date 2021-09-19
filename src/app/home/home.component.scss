@@ -61,7 +61,17 @@ body{
     }
 }
 
-.card-meta{color:orange}
+.card-meta{
+    color:orange;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    display: inline-block;
+    width: 100% !important;
+}
+
 
 .card-body{ 
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);

@@ -24,6 +24,10 @@ import { SectionDetailsComponent } from './section-details/section-details.compo
 import { HttpClientModule } from '@angular/common/http';
 import { MyApi } from './services/course.service'
 
+import { enableProdMode } from '@angular/core';
+
+enableProdMode();
+
 @NgModule({
   declarations: [
     AppComponent,
