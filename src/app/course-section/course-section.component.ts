@@ -44,6 +44,7 @@ export class CourseSectionComponent implements OnInit {
               description: this.trimStringLength(item.description,80),
               date: item.created_at,
               links: [],
+              views: item.views,
               number: item.number
             }
             this.sectionsList.push(new_item);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MyApi } from '../services/course.service';
-import { Link, links } from '../shared/Course';
+import { Link } from '../shared/Course';
 import {Location} from '@angular/common';
 
 @Component({
@@ -18,7 +18,7 @@ export class SectionDetailsComponent implements OnInit {
 
   
 
-  sectionLinks: Link[] = links;
+  // sectionLinks: Link[] = links;
   videoSection: Link[] = []; //2
   slidesSection: Link[] = []; //1
   otherSection: Link[] = [];//3

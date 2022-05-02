@@ -36,8 +36,7 @@ export class CoursesComponent implements OnInit {
     this.router.navigate(['/Course',params]);
   }
 
-  
-  
+
   getCourses(){
     this._Api.getCourses(this.subjectId).subscribe(
       response=>{
@@ -50,6 +49,8 @@ export class CoursesComponent implements OnInit {
               lastPublished: item.updated_at,
               instructor: 'عادل محمدپور',
               cover: null,
+              label: item.label,
+              institution: item.institution,
               sections: []
             }
             this.listCourses.push(new_item);
