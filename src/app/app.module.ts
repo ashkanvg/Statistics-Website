@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApi } from './services/course.service'
 
 import { enableProdMode } from '@angular/core';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { SubjectsComponent } from './subjects/subjects.component';
 
 enableProdMode();
 
@@ -33,7 +35,9 @@ enableProdMode();
     AppComponent,
     HomeComponent,
     CourseSectionComponent,
-    SectionDetailsComponent
+    SectionDetailsComponent,
+    MainpageComponent,
+    SubjectsComponent
   ],
   imports: [
     BrowserModule,
