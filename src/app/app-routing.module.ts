@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseSectionComponent } from './course-section/course-section.component';
-import { HomeComponent } from './home/home.component';
+import { CoursesComponent } from './courses/courses.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SectionDetailsComponent } from './section-details/section-details.component';
+import { SubjectsComponent } from './subjects/subjects.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Main', pathMatch: 'full'},
   { path: 'Main',component: MainpageComponent  },
-  { path: 'Home',component: HomeComponent  },
+  { path: 'Subjects',component: SubjectsComponent  },
+  { path: 'Subject/:id',component: CoursesComponent  },
   { path: 'Course/:id',component: CourseSectionComponent  },
   { path: 'Section/:id',component: SectionDetailsComponent  } 
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MyApi } from '../services/course.service';
-import { Section, sections } from '../shared/Course';
-import {Location} from '@angular/common';
+import { Section } from '../shared/Course';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-course-section',
@@ -22,23 +22,17 @@ export class CourseSectionComponent implements OnInit {
         //console.log(params);
         if(params){
           this.courseId = params['id'];
-          // if not valid send back to /home
+          // if not valid send back to /Subjects
         }else{
-          this.router.navigate(['/Home']);
+          this.router.navigate(['/Subjects']);
         }
-        
       }
     );
 
-    this.getSession();
-/*
-    for(let section of this.sectionsList){
-      section.description = this.trimStringLength(section.description,80);
-    }
-  */
+    this.getSections();
   }
 
-  getSession(){
+  getSections(){
     this._Api.getSections(this.courseId).subscribe(
       response=>{
         if(response){
@@ -63,9 +57,7 @@ export class CourseSectionComponent implements OnInit {
   sectionDetail(sectionId: number){
     let param = sectionId;
     this.router.navigate(['/Section',param ]);
-
   }
-
 
 
   trimStringLength(text: string, maxLength: number): string{

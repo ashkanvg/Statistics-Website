@@ -5,10 +5,10 @@
 </div>-->
 
 
-<section class="wrapper">
+<section class="wrapper" *ngIf="listCourses.length>0">
     <div class="container-fluid">
         <div class="row">
-            <div    *ngFor="let item of homeCourses" (click)="courseClick(item.id)"
+            <div    *ngFor="let item of listCourses" (click)="courseClick(item.id)"
                     class="col-lg-4 mt-2 mb-2" style="direction: rtl;" >
                 <div class="card text-white card-has-bg click-col"
                     style="background-image:url('../../assets/bg/classroom.jpg'); text-align: right;" >

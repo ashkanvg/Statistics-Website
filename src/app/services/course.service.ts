@@ -9,10 +9,10 @@ export class MyApi {
     baseUrl = 'https://statistics-website.herokuapp.com/';
     //baseUrl = 'http://localhost:8000/';
     
-    courseUrl = this.baseUrl + 'api/v0/courses/';
-    sessionUrl = this.baseUrl + 'api/v0/sessions/';
-    contentUrl = this.baseUrl + 'api/v0/contents/';
-    //chartsUrl = this.baseUrl + 'chart/';
+    coursesUrl = this.baseUrl + 'api/v0/courses/';
+    sessionsUrl = this.baseUrl + 'api/v0/sessions/';
+    contentsUrl = this.baseUrl + 'api/v0/contents/';
+    subjectsUrl = this.baseUrl + 'api/v0/subjects/';
     
     /*
     api/v0/courses/
@@ -24,18 +24,23 @@ export class MyApi {
         //this.BaseUrl = window['apiUrl'];
     }
     
-    getCourses():Observable<any>{
-        return this.httpClient.get<any>(this.courseUrl);
+    getSubjects():Observable<any>{
+        return this.httpClient.get<any>(this.subjectsUrl);
+    }
+    getCourses(subject: string):Observable<any>{
+        let params: any = {};
+        params['subject'] = subject;
+        return this.httpClient.get<any>(this.coursesUrl, {params});
     }
     getSections(course: string):Observable<any>{
         let params: any = {};
         params['course'] = course;
-        return this.httpClient.get<any>(this.sessionUrl, {params});
+        return this.httpClient.get<any>(this.sessionsUrl, {params});
     }
     getContents(section: string):Observable<any>{
         let params: any = {};
         params['session'] = section;
-        return this.httpClient.get<any>(this.contentUrl, {params});
+        return this.httpClient.get<any>(this.contentsUrl, {params});
     }
     
 }

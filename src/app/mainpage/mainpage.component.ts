@@ -17,9 +17,9 @@ export class MainpageComponent implements OnInit {
 
   partSelector(id: number){
     if(id==1){
-      this.router.navigate(['/Home']);
+      this.router.navigate(['/Subjects']);
     }else{
-      this.router.navigate(['/Home']);
+      // this.router.navigate(['/']);
     }
   }
 

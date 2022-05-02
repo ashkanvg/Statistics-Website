@@ -1,4 +1,13 @@
 
+export interface Subject{
+    id: number;
+    title: string;
+    lastPublished: string; // updated_at
+    courses: []
+    description: string;
+}
+
+
 export interface Course{
     id: number;
     title: string;   

@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-import { HomeComponent } from './home/home.component';
+import { CoursesComponent } from './courses/courses.component';
 import { CourseSectionComponent } from './course-section/course-section.component';
 import { SectionDetailsComponent } from './section-details/section-details.component';
 
@@ -33,7 +33,7 @@ enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    CoursesComponent,
     CourseSectionComponent,
     SectionDetailsComponent,
     MainpageComponent,

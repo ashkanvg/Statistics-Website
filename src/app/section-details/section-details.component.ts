@@ -31,10 +31,9 @@ export class SectionDetailsComponent implements OnInit {
         //console.log(params);
         if(params){
           this.sectionId = params['id'];
-          // if not valid send back to /home
-
+          // if not valid send back to /Course
         }else{
-          this.router.navigate(['/Home']);
+          this.router.navigate(['/Courses']);
         }
         
       }
