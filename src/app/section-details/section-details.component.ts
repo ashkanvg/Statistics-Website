@@ -80,4 +80,11 @@ export class SectionDetailsComponent implements OnInit {
 
   sectionId: string = '-1';
   titlePage: string = 'اطلاعات جلسه';
+
+
+  selectedQuestions = [];
+  selectedQuestionsId = [];
+  votingClicked(){
+    // return id of question and id of section
+  }
 }
