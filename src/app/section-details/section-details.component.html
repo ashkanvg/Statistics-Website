@@ -88,19 +88,19 @@
               </mat-accordion>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3" *ngIf="votingPanelDisplay==true">
       <div class="col-md-12 main-font">
         <mat-card class="main-font mt-2 p-3" 
                   style="direction: rtl; text-align: center; font-weight: bold;">
                   <br/>
                   با انتخاب یکی از دو گزینه زیر ما را در بهتر کردن مطالب یاری کنید.
         
-          <section class="page-contain ">
-            <a href="#" class="data-card">
-              <h4>کیفیت مطالب بهتر شود</h4>
+          <section class="page-contain">
+            <a class="data-card" (click)="votingClicked(this.selectedQuestionsId[0])">
+              <h4>{{this.selectedQuestions[0]}}</h4>
             </a>
-            <a href="#" class="data-card">
-              <h4>منبع مطالب مشخص نبود</h4>
+            <a class="data-card" (click)="votingClicked(this.selectedQuestionsId[1])">
+              <h4>{{this.selectedQuestions[1]}}</h4>
             </a>
           </section>
         

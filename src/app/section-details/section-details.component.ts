@@ -41,7 +41,9 @@ export class SectionDetailsComponent implements OnInit {
 
     this.getContent();
 
-   
+    this.getQuestions();
+    console.log(this.selectedQuestions);
+
 
   }
 
@@ -74,6 +76,24 @@ export class SectionDetailsComponent implements OnInit {
     });
   }
 
+
+  selectedQuestions : string[] = [];
+  selectedQuestionsId : string[] = [];
+  getQuestions(){
+    this._Api.getQuestions().subscribe(
+      response=>{
+        if(response){
+          //console.log(response.keys());
+          this.selectedQuestionsId = Object.keys(response);
+          console.log(this.selectedQuestionsId);
+
+          this.selectedQuestions = Object.values(response);
+          console.log(this.selectedQuestions);
+        
+        }
+    });
+  }
+
   backClicked() {
     this._location.back();
   }
@@ -82,9 +102,14 @@ export class SectionDetailsComponent implements OnInit {
   titlePage: string = 'اطلاعات جلسه';
 
 
-  selectedQuestions = [];
-  selectedQuestionsId = [];
-  votingClicked(){
-    // return id of question and id of section
+  votingPanelDisplay = true;
+  votingClicked(id: string){
+    var voted = {session: Number(this.sectionId), vote: Number(id) }
+    this.votingPanelDisplay = false;
+    this._Api.postVoting(voted).subscribe
+      (result => {
+        console.log(result);
+      }
+    );
   }
 }

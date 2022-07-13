@@ -13,17 +13,16 @@ export class MyApi {
     sessionsUrl = this.baseUrl + 'api/v0/sessions/';
     contentsUrl = this.baseUrl + 'api/v0/contents/';
     subjectsUrl = this.baseUrl + 'api/v0/subjects/';
+    questionsUrl = this.baseUrl + 'api/v0/votes/';
     
-    /*
-    api/v0/courses/
-    api/v0/sessions/
-    api/v0/contents/
-    */
+
 
     constructor(private httpClient:HttpClient){
         //this.BaseUrl = window['apiUrl'];
     }
     
+
+    // GET:
     getSubjects():Observable<any>{
         return this.httpClient.get<any>(this.subjectsUrl);
     }
@@ -42,6 +41,22 @@ export class MyApi {
         params['session'] = section;
         return this.httpClient.get<any>(this.contentsUrl, {params});
     }
+    getQuestions():Observable<any>{
+        return this.httpClient.get<any>(this.questionsUrl);
+    }
+    
+
+
+    // POST:
+    postVoting(item: any): Observable<any>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+        };
+        return this.httpClient.post(this.questionsUrl, item, httpOptions)   
+    }
+
     
 }
 
