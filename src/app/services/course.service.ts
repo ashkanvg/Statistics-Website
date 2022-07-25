@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class MyApi {
     baseUrl = 'https://statistics-website.herokuapp.com/';
-    //baseUrl = 'http://localhost:8000/';
     
     coursesUrl = this.baseUrl + 'api/v0/courses/';
     sessionsUrl = this.baseUrl + 'api/v0/sessions/';

@@ -25,6 +25,7 @@ export class SectionDetailsComponent implements OnInit {
 
   panelOpenState = false;
 
+
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
@@ -47,19 +48,21 @@ export class SectionDetailsComponent implements OnInit {
 
   }
 
+  pageTitle: string = '';
+  pageDescription: string = '';
   getContent(){
     this._Api.getContents(this.sectionId).subscribe(
       response=>{
         if(response){
-          //console.log(response);
-          for(let item of response){
+          this.pageTitle = response.session_title;
+          this.pageDescription = response.session_description;
+          for(let item of response.contents){
             let new_item: Link ={
               title: item.title,
               date: item.created_at,
               link: item.links,
               type: item.type
             }
-            //this.sectionId = item.session;
             if(new_item.type===1){
               this.slidesSection.push(item);
             }
@@ -70,7 +73,6 @@ export class SectionDetailsComponent implements OnInit {
               this.otherSection.push(item);
             }
           
-            //console.log(item);
           }
         }
     });
@@ -89,7 +91,6 @@ export class SectionDetailsComponent implements OnInit {
 
           this.selectedQuestions = Object.values(response);
           console.log(this.selectedQuestions);
-        
         }
     });
   }
@@ -104,12 +105,18 @@ export class SectionDetailsComponent implements OnInit {
 
   votingPanelDisplay = true;
   votingClicked(id: string){
-    var voted = {session: Number(this.sectionId), vote: Number(id) }
-    this.votingPanelDisplay = false;
-    this._Api.postVoting(voted).subscribe
-      (result => {
-        console.log(result);
-      }
-    );
+    if(id == '-1'){
+      this.votingPanelDisplay = false;
+      return;
+    }else{
+      var voted = {session: Number(this.sectionId), vote: Number(id) }
+      this.votingPanelDisplay = false;
+      this._Api.postVoting(voted).subscribe
+        (result => {
+          console.log(result);
+        }
+      );
+    }
+    
   }
 }

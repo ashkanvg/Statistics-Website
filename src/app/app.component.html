@@ -1,7 +1,11 @@
-<mat-toolbar color="primary"> 
-  <span class="main-font" [routerLink]="['/Main']" routerLinkActive="router-link-active">صفحه اصلی</span>
+<mat-toolbar color="accent" style="background-color: #234f6d !important;"> 
+  <span class="main-font mat-toolbar-text-color" [routerLink]="['/Main']" routerLinkActive="router-link-active">صفحه اصلی</span>
   <span class="toolbar-spacer"></span>
-  <span class="main-font" style="float:left;" routerLinkActive="router-link-active">ورود استاد</span>
+  <span class="main-font mat-toolbar-text-color" style="float:left;" routerLinkActive="router-link-active">
+    <a class="mat-toolbar-text-color" href="https://statistics-website.herokuapp.com/panel/" style="text-decoration: none;">
+      ورود استاد
+    </a>  
+  </span>
 </mat-toolbar>
 
 

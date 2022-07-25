@@ -1,3 +1,13 @@
 .toolbar-spacer {
     flex: 1 1 auto;
 }
+.mat-toolbar-text-color{
+    color: white;
+    cursor: pointer;
+    transition: transform .45s ease, color .45s ease;
+
+    &:hover{
+        
+        color: orange;
+    }
+}

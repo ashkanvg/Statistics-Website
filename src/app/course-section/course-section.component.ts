@@ -32,12 +32,16 @@ export class CourseSectionComponent implements OnInit {
     this.getSections();
   }
 
+
+  pageTitle: string = '';
+  pageDescription: string = '';
   getSections(){
     this._Api.getSections(this.courseId).subscribe(
       response=>{
         if(response){
-          //console.log(response);
-          for(let item of response){
+          this.pageTitle = response.course_title;
+          this.pageDescription = response.course_description;
+          for(let item of response.sessions){
             let new_item: Section ={
               id: item.id,
               title: item.title,

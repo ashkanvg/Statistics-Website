@@ -37,17 +37,21 @@ export class CoursesComponent implements OnInit {
   }
 
 
+  pageTitle: string = '';
+  pageDescription: string = '';
   getCourses(){
     this._Api.getCourses(this.subjectId).subscribe(
       response=>{
         if(response){
-          for(let item of response){
+          this.pageTitle = response.subject_title;
+          this.pageDescription = response.subject_description;
+          for(let item of response.courses){
             let new_item: Course ={
               id: item.id,
               title: item.title,
               description: item.description,
               lastPublished: item.updated_at,
-              instructor: 'عادل محمدپور',
+              instructor: '',
               cover: null,
               label: item.label,
               institution: item.institution,

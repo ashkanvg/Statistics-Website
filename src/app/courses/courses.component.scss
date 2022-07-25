@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
+
 body{
     background-color:#FCBF49;
 }
 .wrapper{margin:5vh}
 //post card styles  
-.card{
+.my-card{
     border: none;
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     overflow:hidden;
@@ -51,15 +53,7 @@ body{
             }
     }
 }
-.card-footer{
-    background: none;
-    border-top: none;
-    .media{
-        img{
-            border:solid 3px rgba(234,95,0,0.3);
-        }
-    }
-}
+
 
 .card-meta{
     color:orange;
@@ -73,7 +67,7 @@ body{
 }
 
 
-.card-body{ 
+.my-card-body{ 
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 &:hover {

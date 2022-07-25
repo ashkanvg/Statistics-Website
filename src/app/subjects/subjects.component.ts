@@ -19,7 +19,6 @@ export class SubjectsComponent implements OnInit {
 
   listSubjects: Subject[] = [];
   subjectClick(id: number){
-    console.log(id);
     let param = id;
     this.router.navigate(['/Subject',param]);
   }

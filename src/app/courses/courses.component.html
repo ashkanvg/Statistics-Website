@@ -4,18 +4,38 @@
     </p>
 </div>-->
 
-
+<section class="wrapper" style="text-align: left; direction: rtl;" *ngIf="this.pageTitle!=''">
+    <div class="card mb-12">
+        <div class="row g-0">
+            <div class="col-md-8" style="text-align: right; direction: rtl; float: right;">
+                <div class="card-body p-3" style="text-align: right; direction: rtl; float: right;">
+                  <h5 class="card-title main-font p-2" style="font-size:30px; text-align: right; direction: rtl;">{{this.pageTitle}}</h5>
+                  <p class="card-text main-font p-2" style="text-align: justify; text-justify: inter-word;">
+                    {{this.pageDescription}}
+                  </p>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <img
+                src="../../assets/icon/transistor-education.gif"
+                alt="Subject Topic"
+                class="img-fluid rounded-start"
+                />
+            </div>
+        </div>
+    </div>
+</section>
 <section class="wrapper" *ngIf="listCourses.length>0">
     <div class="container-fluid">
         <div class="row">
             <div    *ngFor="let item of listCourses" (click)="courseClick(item.id)"
                     class="col-lg-4 mt-2 mb-2" style="direction: rtl;" >
-                <div class="card text-white card-has-bg click-col"
+                <div class="card my-card text-white card-has-bg click-col"
                     style="background-image:url('../../assets/bg/classroom.jpg'); text-align: right;" >
                     <img class="card-img d-none" src="../../assets/bg/classroom.jpg"
                         alt="کلاس آنلاین و آفلاین">
                     <div class="card-img-overlay d-flex flex-column">
-                        <div class="card-body main-font">
+                        <div class="card-body my-card-body main-font">
                             <small class="card-meta mb-2">{{item.description}}</small>
                             <h4 class="card-title mt-0 ">
                                 <a class="text-white" herf="#">
@@ -24,18 +44,7 @@
                             </h4>
                             <small><i class="far fa-clock"></i>{{item.lastPublished | date}}</small>
                         </div>
-                        <!--<div class="card-footer">
-                            <div class="media main-font">
-                                <div class="media-body">
-                                    <h6 class="my-0 text-white d-block">{{item.instructor}}</h6>
-                                    <small>دانشگاه امیرکبیر</small>
-                                </div>
-                                <img class="mr-3 rounded-circle"
-                                    src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                                    alt="Generic placeholder image" style="max-width:50px">
-                                
-                            </div>
-                        </div>-->
+
                     </div>
                 </div>
             </div>
