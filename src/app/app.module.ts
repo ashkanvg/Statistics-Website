@@ -10,7 +10,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatInputModule } from '@angular/material/input';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -28,6 +28,7 @@ import { MyApi } from './services/course.service'
 import { enableProdMode } from '@angular/core';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SubjectsComponent } from './subjects/subjects.component';
+import { GuideComponent } from './guide/guide.component';
 
 enableProdMode();
 
@@ -38,7 +39,8 @@ enableProdMode();
     CourseSectionComponent,
     SectionDetailsComponent,
     MainpageComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    GuideComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ enableProdMode();
     NgbModule,
     HttpClientModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule
   ],
   providers: [MyApi],
   bootstrap: [AppComponent]

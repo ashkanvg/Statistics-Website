@@ -7,7 +7,10 @@
     transition: transform .45s ease, color .45s ease;
 
     &:hover{
-        
         color: orange;
     }
+}
+
+.mat-form-field-wrapper{
+    padding-bottom: 0px !important;
 }

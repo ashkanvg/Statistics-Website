@@ -19,7 +19,7 @@ export class MainpageComponent implements OnInit {
     if(id==1){
       this.router.navigate(['/Subjects']);
     }else{
-      // this.router.navigate(['/']);
+      this.router.navigate(['/Guide']);
     }
   }
 
