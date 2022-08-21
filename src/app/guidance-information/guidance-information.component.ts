@@ -12,7 +12,7 @@ export class GuidanceInformationComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<GuideComponent>,
               @Inject(MAT_DIALOG_DATA) public data: GuidanceAll) {
-    console.log(data);
+    //console.log(data);
   }
   ngOnInit(): void {
   }

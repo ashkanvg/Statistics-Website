@@ -48,9 +48,7 @@ export class MyApi {
         return this.httpClient.get<any>(this.guidancesUrl);
     }
     getGuidance(id: string):Observable<any>{
-        let params: any = {};
-        params['id'] = id;
-        return this.httpClient.get<any>(this.guidancesUrl,{params});
+        return this.httpClient.get<any>(this.guidancesUrl+id);
     }
 
 

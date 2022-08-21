@@ -58,21 +58,24 @@ export class GuideComponent implements OnInit {
       response=>{
         if(response){
           console.log(response);
+
+          let guidance: GuidanceAll = {
+            id: response.id,
+            name: response.name,
+            fields: ['AI','NLP','VISION'],
+            role: 'CS',
+            email: response.email,
+            website: response.website,
+            picture: '',
+            address: response.address,
+            phone: '02131134224'
+          }    
+          this.guidanceDetails(guidance);
+
       }  
     });
 
-    let guidance: GuidanceAll = {
-      id: 0,
-      name: 'Mohammad Akbari',
-      fields: ['AI','NLP','VISION'],
-      role: 'CS',
-      email: 'akbari.ma@gmail.com',
-      website: 'akbari.aut.ac.ir',
-      picture: '',
-      address: '314',
-      phone: '02131134224'
-    }    
-    this.guidanceDetails(guidance);
+    
     
   }
   guidanceDetails(g:GuidanceAll){
