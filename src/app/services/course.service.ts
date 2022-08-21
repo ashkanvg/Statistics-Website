@@ -13,6 +13,7 @@ export class MyApi {
     contentsUrl = this.baseUrl + 'api/v0/contents/';
     subjectsUrl = this.baseUrl + 'api/v0/subjects/';
     questionsUrl = this.baseUrl + 'api/v0/votes/';
+    guidancesUrl = this.baseUrl + 'api/v0/guides/';
     
 
 
@@ -43,7 +44,9 @@ export class MyApi {
     getQuestions():Observable<any>{
         return this.httpClient.get<any>(this.questionsUrl);
     }
-    
+    getGuidances():Observable<any>{
+        return this.httpClient.get<any>(this.guidancesUrl);
+    }
 
 
     // POST:

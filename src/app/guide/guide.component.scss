@@ -96,3 +96,31 @@ body{
 .mat-form-field-wrapper{
     padding-bottom: 0 !important;
 }
+
+
+
+
+// Table
+table {
+    width: 100%;
+}
+table tr{
+    cursor: pointer;
+}
+.first{
+    border-right: #123C69 4px solid !important;
+    width: 60px;
+    //border-radius: 5%;
+}
+.circle-bg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #123C69;
+    color: white;
+    text-align: center;
+    font-size: 35px;
+}
+.name-guidance{
+    font-weight: bold;
+}

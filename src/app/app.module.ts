@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,6 +30,7 @@ import { enableProdMode } from '@angular/core';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { GuideComponent } from './guide/guide.component';
+import { GuidanceInformationComponent } from './guidance-information/guidance-information.component';
 
 enableProdMode();
 
@@ -40,7 +42,8 @@ enableProdMode();
     SectionDetailsComponent,
     MainpageComponent,
     SubjectsComponent,
-    GuideComponent
+    GuideComponent,
+    GuidanceInformationComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ enableProdMode();
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [MyApi],
   bootstrap: [AppComponent]

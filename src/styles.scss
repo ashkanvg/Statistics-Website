@@ -20,6 +20,9 @@ body {
 .second-font{
     font-family: $second-font, $main-font, Roboto, sans-serif;   
 }
+button{
+  background-color: $main-color !important;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
