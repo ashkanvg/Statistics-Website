@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -57,7 +59,9 @@ enableProdMode();
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatChipsModule
   ],
   providers: [MyApi],
   bootstrap: [AppComponent]

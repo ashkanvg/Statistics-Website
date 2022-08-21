@@ -1,1 +1,47 @@
-<p>guidance-information works!</p>
+<div mat-dialog-content style="width: 100%; margin:0; padding: 0;  ">
+    <div class="row" style="width: 100%; margin: 0; padding:0">
+        <div    class="col-md-12 text-center p-3 main-font shadow-md" 
+                style="border:1px solid #123C69; color:#123C69; border-radius: 10px; font-weight: bold;"  >
+            {{data.name}}
+        </div>
+        <!-- <div    class="col-md-6 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+            دانشگاه امیرکبیر
+        </div>
+        <div    class="col-md-6 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+            علوم کامپیوتر
+        </div>
+         -->
+        
+        <div   *ngIf="data.fields.length>0" class="col-md-9 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; " >
+            <p style="font-weight: bold;">فیلدهای استاد</p>
+            <mat-chip-list >
+                <mat-chip *ngFor="let item of data.fields">{{item}}</mat-chip>
+            </mat-chip-list>
+        </div>
+        <div    class="col-md-3 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+                <p style="font-weight: bold;">شماره اتاق</p>
+            {{data.address}}
+        </div> 
+        
+        <div    class="col-md-4 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+                <p style="font-weight: bold;">وبسایت</p>
+            {{data.website}}
+        </div>
+        <div    class="col-md-4 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+                <p style="font-weight: bold;">ایمیل</p>
+            {{data.email}}
+        </div>
+        <div    class="col-md-4 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+                <p style="font-weight: bold;">تلفن</p>
+            {{data.phone}}
+        </div> 
+        
+    </div>
+</div>

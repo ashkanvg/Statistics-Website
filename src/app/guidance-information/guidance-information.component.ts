@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GuideComponent } from '../guide/guide.component';
+import { GuidanceAll } from '../shared/masters';
 
 @Component({
   selector: 'app-guidance-information',
@@ -7,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuidanceInformationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public dialogRef: MatDialogRef<GuideComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: GuidanceAll) {
+    console.log(data);
+  }
   ngOnInit(): void {
   }
 
