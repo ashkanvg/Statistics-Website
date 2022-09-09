@@ -12,6 +12,11 @@ export interface Guidance {
   email: string;
 }
 
+export interface Category{
+  value: string;
+  id: string;
+  isCheck: boolean;
+}
 
 @Component({
   selector: 'app-guide',
@@ -26,31 +31,86 @@ export class GuideComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getGuidances();
+    this.getTags();
   }
 
   displayedColumns: string[] = ['number', 'name'];
   dataSource: Guidance[] = [];
 
-
-  getGuidances(){
-    this._Api.getGuidances().subscribe(
+  tagsList: Category[] = [];
+  tagsListName: string[] = [];
+  searchQuestion: string = "";
+  getTags(){
+    this._Api.getTags().subscribe(
       response=>{
         if(response){
-          console.log(response)
-          for(let item of response){
-            let new_item: Guidance ={
-              id: item.id,
-              name: item.name,
-              email: item.email,
-              first_char: item.name.charAt(0)
-            }
-            this.dataSource.push(new_item);
-        }
-      } 
+          let tag: Category = {value:'',id:'',isCheck:false};
+          for(let cat of response){
+            tag.id = cat.key;
+            tag.value = cat.name;
+            tag.isCheck = false;
+            this.tagsList.push(tag);
+            //clear category:
+            tag = {value:'',id:'',isCheck:false};
+          }
+        } 
     });
   }
 
+  valueChange(tag: Category) {
+    //set the two-way binding here for the specific unit with the event
+    if(tag.isCheck){
+      tag.isCheck=false;
+    }else{
+      tag.isCheck=true;
+    }
+  }
+
+
+  getGuidances(){
+    //var voted = {session: Number(this.sectionId), vote: Number(id) }
+    //this.votingPanelDisplay = false;
+    console.log(this.tagsList);
+    for(let item of this.tagsList){
+      if(item.isCheck==true){
+        this.tagsListName.push(item.value);
+      }
+    }
+    let searchItem = {question:this.searchQuestion,tags:this.tagsListName};
+    console.log(searchItem);
+    this._Api.postFindGuidances(searchItem).subscribe
+      (result => {
+          if(result){
+            for(let item of result){
+              let new_item: Guidance ={
+                id: item.id,
+                name: item.name,
+                email: item.email,
+                first_char: item.name.charAt(0)
+              }
+              this.dataSource.push(new_item);
+            }
+          }
+      }
+    );
+
+
+    // this._Api.getGuidances().subscribe(
+    //   response=>{
+    //     if(response){
+    //       console.log(response)
+    //       for(let item of response){
+    //         let new_item: Guidance ={
+    //           id: item.id,
+    //           name: item.name,
+    //           email: item.email,
+    //           first_char: item.name.charAt(0)
+    //         }
+    //         this.dataSource.push(new_item);
+    //     }
+    //   } 
+    // });
+  }
   guidanceClick(id: number){
     console.log(id);
 
@@ -89,4 +149,8 @@ export class GuideComponent implements OnInit {
       }
     });
   }
+
+
+
+  isLinear = true;
 }

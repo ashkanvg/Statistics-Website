@@ -8,12 +8,13 @@ import { map } from 'rxjs/operators';
 export class MyApi {
     baseUrl = 'https://statistics-website.herokuapp.com/';
     
-    coursesUrl = this.baseUrl + 'api/v0/courses/';
-    sessionsUrl = this.baseUrl + 'api/v0/sessions/';
-    contentsUrl = this.baseUrl + 'api/v0/contents/';
-    subjectsUrl = this.baseUrl + 'api/v0/subjects/';
-    questionsUrl = this.baseUrl + 'api/v0/votes/';
-    guidancesUrl = this.baseUrl + 'api/v0/guides/';
+    coursesUrl = this.baseUrl + 'courses/api/v0/courses/';
+    sessionsUrl = this.baseUrl + 'courses/api/v0/sessions/';
+    contentsUrl = this.baseUrl + 'courses/api/v0/contents/';
+    subjectsUrl = this.baseUrl + 'courses/api/v0/subjects/';
+    questionsUrl = this.baseUrl + 'courses/api/v0/votes/';
+    guidancesUrl = this.baseUrl + 'guides/api/v0/guides/';
+    tagsUrl = this.baseUrl + 'guides/api/v0/tags/';
     
 
 
@@ -50,6 +51,9 @@ export class MyApi {
     getGuidance(id: string):Observable<any>{
         return this.httpClient.get<any>(this.guidancesUrl+id);
     }
+    getTags():Observable<any>{
+        return this.httpClient.get<any>(this.tagsUrl);
+    }
 
 
     // POST:
@@ -60,6 +64,14 @@ export class MyApi {
             })
         };
         return this.httpClient.post(this.questionsUrl, item, httpOptions)   
+    }
+    postFindGuidances(item: any): Observable<any>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+        };
+        return this.httpClient.post(this.guidancesUrl, item, httpOptions)   
     }
 
     

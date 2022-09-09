@@ -1,5 +1,5 @@
 <section class="wrapper" style="text-align: left; direction: rtl;">
-    <div class="card md-12">
+    <div class="card col-md-12">
         <div class="row g-0">
             <div class="col-md-6" style="text-align: right; direction: rtl; float: right;">
                 <div class="card-body p-3" style="text-align: right; direction: rtl; float: right;">
@@ -21,9 +21,115 @@
         </div>
     </div>
 
-    <div class="card md-12">
-        <div class="row g-0">
-            <div class="col-md-12" style="text-align: right; direction: rtl; float: right;">
+    <div class="card">
+      <mat-stepper class="main-font" orientation="vertical" [linear]="isLinear" #stepper>
+        <mat-step>
+            <ng-template class="main-font" matStepLabel>سوالتان مربوط به کدام دسته میشود؟</ng-template>
+            <div class="col-md-12">
+              <div class="form-group text-right caption-font">
+                <li 
+                  *ngFor="let tag of tagsList; let i=index" 
+                  class="main-font" 
+                  style="list-style-type: none;">
+                  <mat-checkbox class="main-font" [checked]="tag.isCheck" 
+                  (change)="valueChange(tag)"> 
+                    {{tag.value}}
+                  </mat-checkbox>
+                </li>  
+              </div>
+            </div>
+            <div>
+              <button class="main-font" mat-button matStepperNext>بخش بعدی</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template class="main-font" matStepLabel>متن سوالتان را بنویسید</ng-template>
+            <div class="row">
+              <div class="col-md-12" style="text-align: right; direction: rtl; float: right;">
+                    <div class="w-100 pt-1" style="text-align: right; direction: rtl; float: right;">
+                        <mat-form-field class="guide-full-width w-100 main-font" appearance="fill">
+                          <mat-label class="main-font">سوال خودتان را بپرسید</mat-label>
+                          <textarea matInput [(ngModel)]="searchQuestion" name="question" class="main-font" maxlength="255" placeholder="به عنوان مثال، حل معادله دیفرانسیل با روش گاوس جردن"></textarea>
+                        </mat-form-field>
+                        <button mat-raised-button class="main-font mt-3" 
+                                style="float: left;"  color="primary" 
+                                (click)="getGuidances()"
+                                matStepperNext>جستجو</button>
+                    </div>
+            </div>
+      
+            </div>
+            <!--<div>
+              <button class="main-font" mat-button matStepperPrevious>بخش قبلی</button>
+              <button class="main-font" mat-button matStepperNext>بخش بعدی</button>
+            </div>-->
+        </mat-step>
+        <mat-step>
+          <ng-template class="main-font" matStepLabel>لیست اساتید</ng-template>
+          <div class="row g-0">
+            <div class="col-12" style="text-align: right; direction: rtl; float: right;">
+                <table class="table table-responsive-sm table-hover table-outline mb-0 main-font"
+                style="border: 1px white solid !important;">
+                
+                <tbody class="drag-list"
+                  style="background-color: rgb(245,246,248);">
+                  <tr *ngFor="let item of dataSource;index as i" (click)="guidanceClick(item.id)" class="first drag-box">
+                    <td class="first">
+                      <div>
+                        <div class="form-group main-font" style="width:60px; margin:0px !important; padding-bottom: 0;">
+                            <div class="circle-bg">
+                                {{item.first_char}}
+                            </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group main-font" style="margin:0px !important; padding-bottom: 0;">
+                        <div class="name-guidance">
+                            {{item.name}}
+                        </div>
+                        <div class="email-guidance">
+                            {{item.email}}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <button class="main-font" mat-button matStepperPrevious>Back</button>
+            <button class="main-font" mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+      
+    </div>
+
+    <!--<div class="card"  style="max-height: 200px; overflow-y: auto;">
+        <div class="col-md-12">
+          <h6 class="main-font pt-3 pr-3" style="text-align: right;">
+            سوالتان مربوط به کدام دسته میشود؟
+          </h6>
+
+          <div class="form-group text-right caption-font pl-3 pb-3 pr-3">
+            <li 
+              *ngFor="let tag of tagsList" 
+              class="main-font" 
+              style="list-style-type: none;">
+              <mat-checkbox class="main-font" [checked]="tag.isCheck"> 
+                {{tag.value}}
+              </mat-checkbox>
+            </li>  
+          </div>
+        </div>
+    </div>-->
+    
+    <!--<div class="col-md-12" style="padding: 0 !important;">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12" style="text-align: right; direction: rtl; float: right;">
                 <div class="w-100 p-3" style="text-align: right; direction: rtl; float: right;">
                   <form class="guide-form w-100 main-font">
                     <mat-form-field class="guide-full-width w-100 main-font" appearance="fill">
@@ -33,20 +139,19 @@
                     <button mat-raised-button class="main-font mt-3" style="float: left;"  color="primary">جستجو</button>
                   </form>
                 </div>
-            </div>
+          </div>
+            
         </div>
-    </div>
+      </div>
+    </div>-->
+
+    <!--
     <div class="card" style="background-color: #F5F6F8;">
         <div class="row g-0">
             <div class="col-12" style="text-align: right; direction: rtl; float: right;">
                 <table class="table table-responsive-sm table-hover table-outline mb-0 main-font"
                 style="border: 1px white solid !important;">
-                <!-- <thead class="thead" style="background-color: white !important; border: 1px white solid !important;">
-                  <tr style="background-color: white !important; border: none !important;">
-                    <th>شماره</th>
-                    <th>نام</th>
-                  </tr>
-                </thead> -->
+                
                 <tbody class="drag-list"
                   style="background-color: rgb(245,246,248);">
                   <tr *ngFor="let item of dataSource;index as i" (click)="guidanceClick(item.id)" class="first drag-box">
@@ -74,5 +179,5 @@
               </table>
             </div>
         </div>
-    </div>
+    </div>-->
 </section>
