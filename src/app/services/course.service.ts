@@ -13,6 +13,7 @@ export class MyApi {
     contentsUrl = this.baseUrl + 'courses/api/v0/contents/';
     subjectsUrl = this.baseUrl + 'courses/api/v0/subjects/';
     questionsUrl = this.baseUrl + 'courses/api/v0/votes/';
+    questionsGuidesUrl = this.baseUrl + 'guides/api/v0/votes/';
     guidancesUrl = this.baseUrl + 'guides/api/v0/guides/';
     tagsUrl = this.baseUrl + 'guides/api/v0/tags/';
     
@@ -54,7 +55,9 @@ export class MyApi {
     getTags():Observable<any>{
         return this.httpClient.get<any>(this.tagsUrl);
     }
-
+    getQuestionsGuides():Observable<any>{
+        return this.httpClient.get<any>(this.questionsGuidesUrl);
+    }
 
     // POST:
     postVoting(item: any): Observable<any>{
@@ -64,6 +67,14 @@ export class MyApi {
             })
         };
         return this.httpClient.post(this.questionsUrl, item, httpOptions)   
+    }
+    postVotingGuidance(item: any): Observable<any>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+        };
+        return this.httpClient.post(this.questionsGuidesUrl, item, httpOptions)   
     }
     postFindGuidances(item: any): Observable<any>{
         const httpOptions = {

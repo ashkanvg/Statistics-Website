@@ -42,6 +42,42 @@
                 <p style="font-weight: bold;">تلفن</p>
                 <p>{{data.phone}}</p>
         </div> 
+
+        <!-- <div    class="col-md-12 text-center p-3 mt-3 main-font shadow-md" 
+                style="border:1px solid #24305e44; "  >
+                <p style="font-weight: bold;">با انتخاب یکی از دو گزینه زیر ما را در بهتر کردن مطالب یاری کنید.</p>
+                <section class="page-contain">
+                    <a class="data-card" (click)="votingClicked(this.selectedQuestionsId[0])">
+                        <h4>{{this.selectedQuestions[0]}}</h4>
+                    </a>
+                    <a class="data-card" (click)="votingClicked(this.selectedQuestionsId[1])">
+                        <h4>{{this.selectedQuestions[1]}}</h4>
+                    </a>
+                </section>
+                <a style="cursor: pointer;" (click)="votingClicked('-1')">
+                    <h6>هیچ کدام</h6>
+                </a>
+        </div>  -->
+        <div class="col-md-12 main-font" *ngIf="votingPanelDisplay==true">
+            <mat-card class="main-font mt-2 p-3" 
+                    style="direction: rtl; text-align: center; font-weight: bold;">
+                    <br/>
+                    با انتخاب یکی از دو گزینه زیر ما را در بهتر کردن مطالب یاری کنید.
+            
+            <section class="page-contain">
+                <a class="data-card" (click)="votingClicked(this.selectedQuestionsId[0])">
+                <h4>{{this.selectedQuestions[0]}}</h4>
+                </a>
+                <a class="data-card" (click)="votingClicked(this.selectedQuestionsId[1])">
+                <h4>{{this.selectedQuestions[1]}}</h4>
+                </a>
+            </section>
+            <a style="cursor: pointer;" (click)="votingClicked('-1')">
+                <h6>هیچ کدام</h6>
+            </a>
+            
+            </mat-card>
+        </div> 
         
     </div>
 </div>

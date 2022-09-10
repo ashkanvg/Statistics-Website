@@ -57,59 +57,52 @@ export class GuideComponent implements OnInit {
     });
   }
 
+
+  checkedTagsCount = 0;
   valueChange(tag: Category) {
     //set the two-way binding here for the specific unit with the event
     if(tag.isCheck){
       tag.isCheck=false;
+      this.checkedTagsCount--;
     }else{
       tag.isCheck=true;
+      this.checkedTagsCount++;
+    }
+
+    if(this.checkedTagsCount>0){
+      this.disable=false;
     }
   }
 
-
+  disable = true;
   getGuidances(){
-    //var voted = {session: Number(this.sectionId), vote: Number(id) }
-    //this.votingPanelDisplay = false;
-    console.log(this.tagsList);
-    for(let item of this.tagsList){
-      if(item.isCheck==true){
-        this.tagsListName.push(item.value);
+    if(this.disable==false){
+      for(let item of this.tagsList){
+        if(item.isCheck==true){
+          this.tagsListName.push(item.value);
+        }
       }
-    }
-    let searchItem = {question:this.searchQuestion,tags:this.tagsListName};
-    console.log(searchItem);
-    this._Api.postFindGuidances(searchItem).subscribe
-      (result => {
-          if(result){
-            for(let item of result){
-              let new_item: Guidance ={
-                id: item.id,
-                name: item.name,
-                email: item.email,
-                first_char: item.name.charAt(0)
+      let searchItem = {question:this.searchQuestion,tags:this.tagsListName};
+      console.log(searchItem);
+      this._Api.postFindGuidances(searchItem).subscribe
+        (result => {
+            if(result){
+              for(let item of result){
+                let new_item: Guidance ={
+                  id: item.id,
+                  name: item.name,
+                  email: item.email,
+                  first_char: item.name.charAt(0)
+                }
+                this.dataSource.push(new_item);
               }
-              this.dataSource.push(new_item);
             }
-          }
-      }
-    );
-
-
-    // this._Api.getGuidances().subscribe(
-    //   response=>{
-    //     if(response){
-    //       console.log(response)
-    //       for(let item of response){
-    //         let new_item: Guidance ={
-    //           id: item.id,
-    //           name: item.name,
-    //           email: item.email,
-    //           first_char: item.name.charAt(0)
-    //         }
-    //         this.dataSource.push(new_item);
-    //     }
-    //   } 
-    // });
+        }
+      );
+  
+    }else{
+      // alert --> you need at least one tag
+    }
   }
   guidanceClick(id: number){
     console.log(id);
@@ -118,7 +111,6 @@ export class GuideComponent implements OnInit {
       response=>{
         if(response){
           console.log(response);
-
           let guidance: GuidanceAll = {
             id: response.id,
             name: response.name,

@@ -26,6 +26,9 @@
         <mat-step>
             <ng-template class="main-font" matStepLabel>سوالتان مربوط به کدام دسته میشود؟</ng-template>
             <div class="col-md-12">
+              <p style="text-align: right;">
+                حداقل یک مورد را باید انتخاب کنید.
+              </p>
               <div class="form-group text-right caption-font">
                 <li 
                   *ngFor="let tag of tagsList; let i=index" 
@@ -39,7 +42,11 @@
               </div>
             </div>
             <div>
-              <button class="main-font" mat-button matStepperNext>بخش بعدی</button>
+              <button mat-raised-button 
+                      [disabled]="disable"
+                      class="main-font mt-3" 
+                      style="float: left;"  color="primary" 
+                      matStepperNext>بخش بعدی</button>
             </div>
         </mat-step>
         <mat-step>
@@ -51,10 +58,11 @@
                           <mat-label class="main-font">سوال خودتان را بپرسید</mat-label>
                           <textarea matInput [(ngModel)]="searchQuestion" name="question" class="main-font" maxlength="255" placeholder="به عنوان مثال، حل معادله دیفرانسیل با روش گاوس جردن"></textarea>
                         </mat-form-field>
-                        <button mat-raised-button class="main-font mt-3" 
+                        <button mat-raised-button 
+                                [disabled]="disable"
+                                class="main-font mt-3" 
                                 style="float: left;"  color="primary" 
-                                (click)="getGuidances()"
-                                matStepperNext>جستجو</button>
+                                matStepperNext>لیست اساتید</button>
                     </div>
             </div>
       
@@ -67,6 +75,25 @@
         <mat-step>
           <ng-template class="main-font" matStepLabel>لیست اساتید</ng-template>
           <div class="row g-0">
+              <button mat-raised-button 
+                    [disabled]="disable"
+                    class="main-font mb-3 mr-3" 
+                    style="float: left;"  color="primary" 
+                    (click)="getGuidances()"
+                    matStepperNext>جستجو
+                  
+              </button>
+              <div *ngIf="disable==true" class="col-md-12">
+                <p style="text-align: right;">
+                  ابتدا بخش اول یک گزینه را انتخاب کنید.
+                </p>
+              </div>
+              <div *ngIf="dataSource.length==0 && disable==false" class="col-md-12">
+              <p style="text-align: right;">
+                لیستی از اساتید یافت نشد.
+              </p>
+              
+            </div>
             <div class="col-12" style="text-align: right; direction: rtl; float: right;">
                 <table class="table table-responsive-sm table-hover table-outline mb-0 main-font"
                 style="border: 1px white solid !important;">
@@ -98,10 +125,10 @@
               </table>
             </div>
           </div>
-          <div>
+          <!--<div>
             <button class="main-font" mat-button matStepperPrevious>Back</button>
             <button class="main-font" mat-button (click)="stepper.reset()">Reset</button>
-          </div>
+          </div>-->
         </mat-step>
       </mat-stepper>
       
