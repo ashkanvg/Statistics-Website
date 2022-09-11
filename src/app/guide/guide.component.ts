@@ -83,7 +83,8 @@ export class GuideComponent implements OnInit {
         }
       }
       let searchItem = {question:this.searchQuestion,tags:this.tagsListName};
-      console.log(searchItem);
+      // console.log(searchItem);
+      this.dataSource = [];
       this._Api.postFindGuidances(searchItem).subscribe
         (result => {
             if(result){
@@ -105,8 +106,6 @@ export class GuideComponent implements OnInit {
     }
   }
   guidanceClick(id: number){
-    console.log(id);
-
     this._Api.getGuidance(id+'').subscribe(
       response=>{
         if(response){
@@ -114,13 +113,13 @@ export class GuideComponent implements OnInit {
           let guidance: GuidanceAll = {
             id: response.id,
             name: response.name,
-            fields: ['AI','NLP','VISION'],
+            fields: response.tags,
             role: 'CS',
             email: response.email,
             website: response.website,
             picture: '',
             address: response.address,
-            phone: '02131134224'
+            phone: response.phone
           }    
           this.guidanceDetails(guidance);
 
