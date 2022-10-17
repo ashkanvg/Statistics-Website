@@ -8,7 +8,7 @@ export interface Master{
 export interface GuidanceAll{
     id: number;
     name: string;
-    fields: string[];
+    //fields: string[];
     role: string;
     email: string;
     website: string;

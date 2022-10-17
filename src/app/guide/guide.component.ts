@@ -113,7 +113,7 @@ export class GuideComponent implements OnInit {
           let guidance: GuidanceAll = {
             id: response.id,
             name: response.name,
-            fields: response.tags,
+            //fields: response.tags,
             role: 'CS',
             email: response.email,
             website: response.website,
